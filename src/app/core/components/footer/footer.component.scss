@@ -1,0 +1,11 @@
+.footer {
+  min-height: 350px;
+
+  .wrapper {
+    min-height: inherit;
+
+    .links a {
+      text-decoration: none;
+    }
+  }
+}

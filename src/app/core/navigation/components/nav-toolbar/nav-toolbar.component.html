@@ -1,0 +1,22 @@
+<mat-toolbar class="pr-3" style="height: 64px;"
+  color="primary"
+  [ngStyle]="{'opacity':isToolbarVisible === 'Down' ? '0' : '1'}"
+  class="mat-elevation-z6"
+  fxLayout
+  fxLayoutGap="16px">
+
+  <button type="button"
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    *ngIf="isHandset"
+    (click)="onToggleSideNav()">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+
+  <span>Angular Grid</span>
+
+  <span class="example-spacer"></span>
+
+  <ng-template [cdkPortalOutlet]="portal$ | async"></ng-template>
+
+</mat-toolbar>

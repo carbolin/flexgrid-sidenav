@@ -1,0 +1,149 @@
+<div class="grid-container"
+  gdColumns.lt-lg="repeat(8, 1fr)"
+  gdColumns.gt-md="repeat(12, 1fr)"
+  gdGap="36px 16px"
+  gdRows="repeat(4, 1fr)!">
+
+  <h1 class="mat-h1"
+    gdColumn.lt-lg="span 8"
+    gdColumn.gt-md="span 12">
+    Table with grid-auto-rows
+  </h1>
+
+  <div class="mat-elevation-z8"
+    gdColumn.lt-lg="span 8"
+    gdColumn.lg="1 / span 8"
+    gdRow.lg="span 2"
+    gdColumn.gt-lg="1 / span 5"
+    gdRow.gt-lg="span 3">
+
+    <table mat-table
+      class="full-width-table"
+      matSort
+      aria-label="Elements">
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header>Id</th>
+        <td mat-cell
+          *matCellDef="let row">{{row.id}}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header>Name</th>
+        <td mat-cell
+          *matCellDef="let row">{{row.name}}</td>
+      </ng-container>
+
+      <tr mat-header-row
+        *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row
+        *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator #paginator
+      [length]="dataSource?.data?.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]"
+      aria-label="Select page">
+    </mat-paginator>
+
+  </div>
+
+  <mat-card class="hydrogen mat-elevation-z8"
+    fxHide.lt-lg
+    gdColumn.lg="9 / span 4"
+    gdRow.lg="2 / span 1"
+    gdColumn.gt-lg="7 / span 3"
+    gdRow.gt-lg="span 2">
+
+    <mat-card-header>
+
+      <mat-card-title>
+        Hydrogen
+        <button mat-icon-button
+          color="accent"
+          class="more-button"
+          [matMenuTriggerFor]="menu2"
+          aria-label="Toggle menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #menu2="matMenu"
+          xPosition="before">
+
+          <button mat-menu-item>Expand</button>
+          <button mat-menu-item>Remove</button>
+
+        </mat-menu>
+
+      </mat-card-title>
+
+    </mat-card-header>
+
+    <mat-card-content class="dashboard-card-content">
+
+      <div class="content">Photo by
+        <a href="https://unsplash.com/@erdaest?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Erda
+          Estremera</a>
+        on
+        <a
+          href="https://unsplash.com/s/photos/water?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+      </div>
+
+    </mat-card-content>
+
+  </mat-card>
+
+  <mat-card class="helium mat-elevation-z8"
+    gdColumn.lt-lg="span 8"
+    gdColumn.lg="9 / span 4"
+    gdRow.lg="3 / span 1"
+    gdColumn.gt-lg="10 / span 3"
+    gdRow.gt-lg="span 2">
+
+    <mat-card-header>
+
+      <mat-card-title>
+        Helium
+        <button mat-icon-button
+          color="accent"
+          class="more-button"
+          [matMenuTriggerFor]="menu2"
+          aria-label="Toggle menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #menu2="matMenu"
+          xPosition="before">
+
+          <button mat-menu-item>Expand</button>
+          <button mat-menu-item>Remove</button>
+
+        </mat-menu>
+
+      </mat-card-title>
+
+    </mat-card-header>
+
+    <mat-card-content fxLayout="column"
+      fxLayoutAlign="end"
+      class="dashboard-card-content">
+
+      <div class="content">
+        Photo by <a
+          href="https://unsplash.com/@florianklauer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Florian
+          Klauer</a> on <a
+          href="https://unsplash.com/s/photos/helium?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+      </div>
+
+    </mat-card-content>
+
+  </mat-card>
+
+</div>

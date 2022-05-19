@@ -1,0 +1,112 @@
+<footer class="footer p-3 mat-elevation-z5">
+
+  <div class="wrapper"
+    fxLayout="column"
+    fxLayoutAlign.gt-sm="space-evenly" fxLayoutAlign.lt-md="space-evenly center">
+
+    <section class="text text-justify"
+      fxHide.lt-md
+      ngClass.md="py-4"
+      ngClass.gt-md="px-3">
+
+      <div class="mat-card-title py-3">
+        hoochsitz.at
+      </div>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo possimus odio placeat omnis at enim? Dolor
+        tenetur, voluptate possimus explicabo eum, neque maiores temporibus similique voluptatum praesentium quas,
+        dolorum magni.
+      </p>
+
+    </section>
+
+    <div fxLayout.lt-md="column"
+      fxLayout.gt-sm
+      fxLayoutAlign.gt-sm="space-around">
+
+      <section class="links intern" ngClass.lt-md="mb-4">
+
+        <div class="mat-card-title py-3">intern</div>
+
+        <ng-container *ngFor="let link of intern">
+
+          <div class="py-1"
+            fxLayout
+            fxLayoutAlign="start center">
+
+            <mat-icon mat-list-icon>
+              {{link.icon}}
+            </mat-icon>
+
+            <a routerLink="#">
+              <span class="ml-2">
+                {{link.name}}
+              </span>
+            </a>
+
+          </div>
+
+        </ng-container>
+
+      </section>
+
+      <section class="links extern"
+        fxHide.lt-md>
+
+        <div class="mat-card-title py-3">extern</div>
+
+        <ng-container *ngFor="let folder of extern">
+
+          <div class="py-1"
+            fxLayout
+            fxLayoutAlign="start center">
+
+            <mat-icon mat-list-icon>
+              {{folder.icon}}
+            </mat-icon>
+
+            <a href="#"
+              target="_blank">
+
+              <span class="ml-2">
+                {{folder.name}}
+              </span>
+
+            </a>
+
+          </div>
+
+        </ng-container>
+
+      </section>
+
+      <section class="contact">
+
+        <div class="mat-card-title py-3">contact</div>
+
+        <ng-container *ngFor="let folder of contact">
+
+          <div class="py-1"
+            fxLayout
+            fxLayoutAlign="start center">
+
+            <mat-icon mat-list-icon>
+              {{folder.icon}}
+            </mat-icon>
+
+            <span class="ml-2">
+              {{folder.name}}
+            </span>
+
+          </div>
+
+        </ng-container>
+
+      </section>
+
+    </div>
+
+  </div>
+
+</footer>

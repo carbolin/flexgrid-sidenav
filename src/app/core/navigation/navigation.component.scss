@@ -1,0 +1,45 @@
+.sidenav-container {
+  height: inherit;
+
+  .sidenav {
+    width: 300px;
+    z-index: 2;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 0;
+      opacity: 0.5;
+      background-image: url(../../../assets/karsten-winegeart-oU6KZTXhuvk-unsplash.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-blend-mode: luminosity;
+      background-color: inherit;
+      clip-path: polygon(60% 0, 100% 0, 100% 100%, 0 100%, 0 50%);
+    }
+
+    .credits {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+    }
+
+    .active {
+      font-weight: 500;
+    }
+  }
+
+  .sidenav .mat-toolbar {
+    background: inherit;
+  }
+
+  .content-container {
+    min-height: 100vh;
+    margin-top: 100px;
+  }
+}

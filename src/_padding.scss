@@ -1,0 +1,77 @@
+@use "sass:math";
+
+@function calculate($value) {
+
+  @if $value < 3 {
+    @return math.div($value, 4)+rem;
+  }
+
+  @if $value==3 {
+    @return math.div($value, 3)+rem;
+  }
+
+  @if $value==4 {
+    @return (math.div($value, 2) - 0.5)+rem;
+  }
+
+  @if $value>=5 {
+    @return (math.div($value, 2) + 0.5)+rem;
+  }
+
+  @else {
+    @return 0rem;
+  }
+}
+
+$values: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
+
+@each $value in $values {
+
+  .m-#{$value} {
+    margin: calculate($value) !important;
+  }
+
+  .p-#{$value} {
+    padding: calculate($value) !important;
+  }
+
+  .mt-#{$value},
+  .my-#{$value} {
+    margin-top: calculate($value) !important;
+  }
+
+  .pt-#{$value},
+  .py-#{$value} {
+    padding-top: calculate($value) !important;
+  }
+
+  .mb-#{$value},
+  .my-#{$value} {
+    margin-bottom: calculate($value) !important;
+  }
+
+  .pb-#{$value},
+  .py-#{$value} {
+    padding-bottom: calculate($value) !important;
+  }
+
+  .mr-#{$value},
+  .mx-#{$value} {
+    margin-right: calculate($value) !important;
+  }
+
+  .pr-#{$value},
+  .px-#{$value} {
+    padding-right: calculate($value) !important;
+  }
+
+  .ml-#{$value},
+  .mx-#{$value} {
+    margin-left: calculate($value) !important;
+  }
+
+  .pl-#{$value},
+  .px-#{$value} {
+    padding-left: calculate($value) !important;
+  }
+}

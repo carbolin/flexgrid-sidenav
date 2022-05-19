@@ -1,0 +1,107 @@
+<div>
+
+  <section id="dashOne">
+
+    <h1 class="mat-h1">Dashboard with Grid List</h1>
+
+    <mat-grid-list cols="2"
+      rowHeight="350px">
+
+      <mat-grid-tile *ngFor="let card of cards | async"
+        [colspan]="card.cols"
+        [rowspan]="card.rows">
+
+        <mat-card class="dashboard-card">
+
+          <mat-card-header>
+
+            <mat-card-title>
+
+              {{card.title}}
+              <button mat-icon-button color="accent"
+                class="more-button"
+                [matMenuTriggerFor]="menu1"
+                aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+
+              <mat-menu #menu1="matMenu"
+                xPosition="before">
+
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+              </mat-menu>
+
+            </mat-card-title>
+
+          </mat-card-header>
+
+          <mat-card-content class="dashboard-card-content">
+
+            <div>Card Content Here</div>
+
+          </mat-card-content>
+
+        </mat-card>
+
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+  </section>
+
+  <section id="dashTwo" class="pt-4">
+
+    <h1 class="mat-h1">Dashboard with FlexLayout Grid</h1>
+
+    <div class="grid-container"
+      gdColumns.lt-lg="repeat(8, 1fr)"
+      gdColumns.gt-md="repeat(12, 1fr)"
+      gdGap="36px 16px"
+      gdRows="350px!">
+
+      <ng-container *ngFor="let card of gridCards | async">
+
+        <mat-card gdColumn.lt-lg="span 8"
+          [gdColumn.gt-md]="card.cols + '/ span ' + card.span"
+          [gdRow.gt-md]="'span ' + card.rows">
+
+          <mat-card-header>
+
+            <mat-card-title>
+              {{card.title}}
+              <button mat-icon-button color="accent"
+                class="more-button"
+                [matMenuTriggerFor]="menu2"
+                aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+
+              <mat-menu #menu2="matMenu"
+                xPosition="before">
+
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+
+              </mat-menu>
+
+            </mat-card-title>
+
+          </mat-card-header>
+
+          <mat-card-content class="dashboard-card-content">
+
+            <div>Card Content Here</div>
+
+          </mat-card-content>
+
+        </mat-card>
+
+      </ng-container>
+
+    </div>
+
+  </section>
+
+</div>
+

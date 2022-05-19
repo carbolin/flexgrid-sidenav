@@ -1,0 +1,69 @@
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
+
+    <mat-toolbar>Menu</mat-toolbar>
+
+    <mat-nav-list>
+      <a mat-list-item
+        routerLink="home"
+        routerLinkActive="active">Home</a>
+
+      <a mat-list-item
+        routerLink="table"
+        routerLinkActive="active">Table</a>
+
+      <a mat-list-item
+        routerLink="dashboard"
+        routerLinkActive="active"
+        fragment="dashTwo">Dashboard</a>
+
+
+      <a mat-list-item
+        routerLink="address-form"
+        routerLinkActive="active">Address Form</a>
+
+    </mat-nav-list>
+
+    <mat-divider></mat-divider>
+
+    <small class="credits">@Credits for Mr. Luis</small>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <app-nav-toolbar [isToolbarVisible]="isToolbarVisible"
+      [isHandset]="isHandset$ | async"
+      (toggleSideNav)="drawer.toggle()">
+    </app-nav-toolbar>
+
+    <div class="content-container"
+      gdRows="1fr auto"
+      gdGap="64px">
+
+      <main class="main px-3">
+        <router-outlet></router-outlet>
+      </main>
+
+      <app-footer gdGridAlign="stretch end"></app-footer>
+
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+<ng-container *cdkPortal>
+
+  <button mat-icon-button
+    (click)="toggleTheme()">
+    <mat-icon>{{(themingService.isDark$ | async) ? 'light_mode' : 'dark_mode'}}</mat-icon>
+  </button>
+
+</ng-container>

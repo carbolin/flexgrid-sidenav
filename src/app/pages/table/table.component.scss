@@ -1,0 +1,70 @@
+.full-width-table {
+  width: 100%;
+}
+
+.grid-card {
+  height: 100%;
+  width: 100%;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+
+  .content {
+    position: absolute;
+    bottom: 3px;
+    left: 5px;
+    font-size: xx-small;
+  }
+}
+
+.hydrogen {
+  z-index: 1;
+  min-height: 200px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    opacity: 0.3;
+    background-image: url(../../../assets/erda-estremera-eMX1aIAp9Nw-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-blend-mode: luminosity;
+    background-color: inherit;
+    clip-path: polygon(60% 0, 100% 0, 100% 100%, 0 100%, 0 50%);
+  }
+}
+
+.helium {
+  z-index: 1;
+  min-height: 200px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    opacity: 0.3;
+    background-image: url(../../../assets/florian-klauer-nptLmg6jqDo-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-blend-mode: difference;
+    background-color: inherit;
+    clip-path: polygon(60% 0, 100% 0, 100% 100%, 0 100%, 0 50%);
+  }
+}
